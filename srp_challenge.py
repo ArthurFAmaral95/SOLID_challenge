@@ -80,3 +80,30 @@ task_handler.handle(remove_task)
 task_handler.handle(send_notification)
 task_handler.handle(generate_report)
 task_handler.handle(send_report)
+
+'''SOLUCAO ROCKETSEAT'''
+
+class TaskHandlerRS:
+  def create_task(self):
+    pass
+
+  def update_task(self):
+    pass
+
+  def remove_task(self):
+    pass
+
+class Reports:
+  def generate_report(self):
+    pass
+
+  def send_report(self):
+    pass
+
+class Notification:
+  def send_notification(self):
+    pass
+
+class ConnectAPIRS:
+  def connect_api(self):
+    pass
