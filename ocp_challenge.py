@@ -42,3 +42,32 @@ aprovador = AprovaExame()
 
 aprovador.aprovar_solicitacao_exame(exame_sangue)
 aprovador.aprovar_solicitacao_exame(exame_raio_x)
+
+
+#codigo com OCP
+from abc import ABC, abstractmethod
+
+class VerificaCondicoesInterface(ABC):
+  @abstractmethod
+  def verifica_condicoes(self, exame):
+    pass
+
+class VerificaCondicoesExameSangue(VerificaCondicoesInterface):
+  def verifica_condicoes(self):
+    print('Exame de sangue aprovado com OCP')
+
+class VerificaCondicoesRaioX(VerificaCondicoesInterface):
+  def verifica_condicoes(self):
+    print('Exame de raio X aprovado com OCP')
+
+
+class AprovaExameOCP:
+  def aprovar_solicitacao_exame(self, aprovacao):
+    aprovacao.verifica_condicoes()
+
+exame_sangue_ocp = VerificaCondicoesExameSangue()
+exame_raio_x_ocp = VerificaCondicoesRaioX()
+aprova_exame_ocp = AprovaExameOCP()
+
+aprova_exame_ocp.aprovar_solicitacao_exame(exame_raio_x_ocp)
+aprova_exame_ocp.aprovar_solicitacao_exame(exame_sangue_ocp)
