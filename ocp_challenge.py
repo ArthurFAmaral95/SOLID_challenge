@@ -71,3 +71,43 @@ aprova_exame_ocp = AprovaExameOCP()
 
 aprova_exame_ocp.aprovar_solicitacao_exame(exame_raio_x_ocp)
 aprova_exame_ocp.aprovar_solicitacao_exame(exame_sangue_ocp)
+
+'''SOLUCAO ROCKETSEAT'''
+
+class AprovaExameRS(ABC):
+  @abstractmethod
+  def aprovar_solicitacao_exame(self, exame):
+    pass
+
+  @abstractmethod
+  def verifica_condicoes_exame(self, exame):
+    pass
+
+class AprovaExameSangue(AprovaExameRS):
+  def aprovar_solicitacao_exame(self, exame):
+    if self.verifica_condicoes_exame(exame):
+      print('Exame de sangue aprovado')
+
+  def verifica_condicoes_exame(self, exame):
+    return True
+
+class AprovaRaioX(AprovaExameRS):
+  def aprovar_solicitacao_exame(self, exame):
+    if self.verifica_condicoes_exame(exame):
+      print('Raio X aprovado')
+
+  def verifica_condicoes_exame(self, exame):
+    return True
+
+class ExameRS:
+  def __init__(self, tipo):
+    self.tipo = tipo
+
+exame_sangue_rs = ExameRS('sangue')
+exame_raio_x_rs = ExameRS('raioX')
+
+aprovador_sangue = AprovaExameSangue()
+aprovador_raio_x = AprovaRaioX()
+
+aprovador_sangue.aprovar_solicitacao_exame(exame_sangue_rs)
+aprovador_raio_x.aprovar_solicitacao_exame(exame_raio_x_rs)
